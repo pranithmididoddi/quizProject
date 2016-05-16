@@ -1,0 +1,55 @@
+[
+    {
+        "question" : "Which is the valid keyword in java?",
+        "answers"   :[
+            { "id" : 0, "text" : "interface" },
+            { "id" : 1, "text" : "string" },
+            { "id" : 2, "text" : "Float" },
+            { "id" : 3, "text" : "unsigned" }
+        ],
+        "correct"  : 0
+    },
+    {
+        "question" : "Which one is a valid declaration of boolean?",
+        "answers"   :[
+            { "id" : 0, "text" : "boolean b1=0;" },
+            { "id" : 1, "text" : "boolean b2='false';" },
+            { "id" : 2, "text" : "boolean b3=false;" },
+            { "id" : 3, "text" : "bool b4=no;" }
+        ],
+        "correct"  : 2
+    },
+    {
+        "question" : "Which is the valid declaration of string?",
+        "answers"   :[
+            { "id" : 0, "text" : "String s1=null;" },
+            { "id" : 1, "text" : "String s1='null';" },
+            { "id" : 2, "text" : "string s1=null;" },
+            { "id" : 3, "text" : "no idea" }
+        ],
+        "correct"  : 0,
+        "feedback" : "The correct option is 1. S should be capital."
+    },
+    {
+        "question" : "What would be the a.length of int[] a= {0,1,2,3}",
+        "answers"   :[
+            { "id" : 0, "text" : "error" },
+            { "id" : 1, "text" : "2" },
+            { "id" : 2, "text" : "3" },
+            { "id" : 3, "text" : "4" }
+        ],
+        "correct"  : 3
+    },
+    {
+        "question" : "Which of these would allow the append()?",
+        "answers"   :[
+            { "id" : 0, "text" : "String" },
+            { "id" : 1, "text" : "StringBuffer" },
+            { "id" : 2, "text" : "HashSet" },
+            { "id" : 3, "text" : "None of the above" }
+        ],
+        "correct"  : 1
+    }
+]
+
+

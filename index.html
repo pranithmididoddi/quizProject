@@ -1,0 +1,78 @@
+		<!-- markup goes here -->
+<!DOCTYPE HTML>
+<html ng-app="myQuiz">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Test Your Java Skills</title>
+		<link rel="stylesheet" type="text/css" href="css/quiz.css">
+	</head>
+	<body>
+
+        		
+		<!-- myQuiz container: Provides common margins, paddings, fonts and alignments. Outermost container for the entire project-->
+<div id="myQuiz" ng-controller="QuizController">
+<h1>Test Your Knowledge: <span>Programming</span></h1><!-- Spanning: To differentiate between Test your knowledge and programming -->
+    <div class="progress">
+    
+    <div class="
+                {{ ($index === activeQuestion) ? 'on' : 'off' }}
+                {{ (myQuestion.questionState === 'answered') ? 'answered' : 'unanswered' }}
+                {{ (myQuestion.correctness === 'correct') ? 'correct' : 'incorrect' }}
+                " ng-repeat="myQuestion in myQuestions"></div>
+    
+    </div><!-- for the progress bar -->
+    
+    
+    <div class="intro {{ (activeQuestion > -1) ? 'inactive' : 'active' }}">
+    
+        <h2>Welcome</h2>
+        <p>Click Begin To Test Your Programming Knowledge.</p>
+        <p class="btn" ng-click="activeQuestion =0">Begin</p><!--class name for the begin button-->
+    
+    </div><!-- for the intro section -->
+    
+    <div class="question 
+         {{ $index === activeQuestion ?  'active' : 'inactive' }} 
+         {{ myQuestion.questionState === 'answered' ? 'answered' : 'unanswered' }}        
+         "ng-repeat="myQuestion in myQuestions"><!-- for the question field -->
+    
+    <p class="txt">{{myQuestion.question}}</p>
+    <p class="ans"
+       ng-class="{ 
+                 image: Answer.image,
+                 selected:isSelected($parent.$index,$index), 
+                 correct:isCorrect($parent.$index,$index) 
+                 }"
+       ng-style="{ 'background-image':'url({{Answer.image}})' }"
+       ng-click="selectAnswer($parent.$index,$index)"
+       ng-repeat="Answer in myQuestions[$index].answers">
+        {{Answer.text}}
+    </p>
+    <div class="feedback">
+        <p ng-show="myQuestion.correctness === 'correct'">You are <strong>correct</strong></p>
+        <p ng-show="myQuestion.correctness === 'incorrect'">Oops! That is not correct.</p>
+        <p>{{myQuestion.feeback}}</p>
+        <div class="btn" ng-click="selectContinue()">Continue</div>
+        
+        </div><!--to explain a question and its answer-->
+    </div>
+    
+    <div class="results {{ (totalQuestions === activeQuestion) ? 'active' : 'inactive' }}"><!-- for the results-->
+    
+    <h3>Results</h3>
+    <p>You scored {{percentage}}% by correctly answering {{score}} of the total {{totalQuestions}} questions.</p>
+    <p>Use the links below to challenge your friends.</p>
+        <div class="share" ng-bind-html="createShareLinks(percentage)">
+        <a class="btn email" href="#">Email</a>
+        <a class="btn twitter" href="#">Tweet</a>
+        
+        </div>
+    </div>
+        
+</div>
+<!--Adding the javascript files. Placing it at the bottom as the browser could load the html before it sees the javascript files-->		
+            <script type="text/javascript" src="js/angular.min.js"></script>
+            <script type="text/javascript" src="js/quiz.js"></script>        
+	</body>
+</html>
